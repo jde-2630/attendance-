@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance System</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase v8 (namespaced) so it works without bundlers -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+  <!-- Attendance Form Section -->
+  <div id="formSection" class="container section active">
+      <h1>Attendance Form</h1>
+      <form id="attendanceForm">
+          <label for="studentName">Student's Name:</label>
+          <input type="text" id="studentName" required>
+
+          <label for="gradeLevel">Select Grade Level:</label>
+          <select id="gradeLevel" required>
+              <option value="ABM-11">ABM-11</option>
+              <option value="HUMSS-11">HUMSS-11</option>
+              <option value="STEM-11">STEM-11</option>
+              <option value="TVL-11">TVL-11</option>
+              <option value="ABM-12">ABM-12</option>
+              <option value="HUMSS-12">HUMSS-12</option>
+              <option value="STEM-12">STEM-12</option>
+              <option value="TVL-12">TVL-12</option>
+          </select>
+
+          <label for="lrn">LRN:</label>
+          <input type="text" id="lrn" required>
+
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" required>
+
+          <label for="overallAttendance">Attendance:</label>
+          <select id="overallAttendance" required>
+              <option value="AM class">AM class</option>
+              <option value="PM class">PM class</option>
+          </select>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" readonly>
+
+          <div id="errorMessage" class="error" style="display:none;"></div>
+          <button type="button" id="submitBtn">Submit</button>
+          <button type="button" id="recordsBtn">Records</button>
+      </form>
+  </div>
+
+  <!-- Response Submitted Section -->
+  <div id="submittedSection" class="container section">
+      <h1>Your Response Was Submitted</h1>
+      <button id="backToFormBtn">Go Back</button>
+  </div>
+
+  <!-- Records Section -->
+  <div id="recordsSection" class="container section">
+      <h1>Enter Password to View Records</h1>
+      <form id="passwordForm">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+          <div id="passwordError" class="error" style="display:none;"></div>
+          <button type="submit">Submit</button>
+      </form>
+
+      <div id="recordsDisplay" style="display:none;">
+          <h2>Attendance Records</h2>
+          <button class="reset-button" id="resetBtn">Reset All Records</button>
+          <div id="recordsContainer"></div>
+          <p id="noRecords" style="display:none;">No records found.</p>
+          <button id="backToFormBtn2">Back to Form</button>
+      </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
